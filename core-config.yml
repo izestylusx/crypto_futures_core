@@ -1,40 +1,213 @@
-# DO NOT MODIFY - EXACT CONFIGURATION REQUIRED
+# CUSTOMIZABLE CONFIGURATION - MODIFY AS NEEDED
 version: 1.0.0
 project_name: "Crypto Futures Trading Agent System"
 agent_type: "document_based"
 
-# Trading Configuration - DO NOT CHANGE VALUES
+# Trading Configuration - CUSTOMIZABLE
 trading:
   exchange: "binance_futures"
-  default_leverage: 5
-  max_leverage: 20
-  risk_percentage: 2.0
-  base_currency: "USDT"
+  default_leverage: 5           # Default leverage (1-20)
+  max_leverage: 20             # Maximum allowed leverage
+  risk_percentage: 2.0         # Risk per trade (1.0-5.0)
+  base_currency: "USDT"        # Base currency for trading
+  
+  # Trading Modes
+  paper_trading: false         # Enable paper trading mode
+  auto_trading: false          # Enable automated trading
+  max_daily_trades: 20         # Maximum trades per day
+  max_open_positions: 10       # Maximum open positions
+  
+  # Order Management
+  order_timeout: 300           # Order timeout in seconds
+  slippage_tolerance: 0.5      # Slippage tolerance percentage
+  partial_fill_threshold: 0.8  # Minimum fill ratio to accept
 
-# Risk Management - EXACT VALUES REQUIRED
+# Risk Management - CUSTOMIZABLE
 risk_management:
-  max_portfolio_risk: 10.0
-  max_position_risk: 5.0
-  stop_loss_percentage: 2.0
-  take_profit_ratio: 2.0
-  max_drawdown_threshold: 20.0
+  max_portfolio_risk: 10.0     # Maximum portfolio risk (5.0-20.0)
+  max_position_risk: 5.0       # Maximum position risk (2.0-10.0)
+  stop_loss_percentage: 2.0    # Stop loss percentage (1.0-5.0)
+  take_profit_ratio: 2.0       # Take profit ratio (1.5-3.0)
+  max_drawdown_threshold: 20.0 # Maximum drawdown threshold (10.0-30.0)
+  
+  # Advanced Risk Controls
+  correlation_limit: 0.7       # Maximum correlation between positions
+  sector_exposure_limit: 30.0  # Maximum exposure to single sector
+  volatility_adjustment: true  # Adjust position size based on volatility
+  
+  # Emergency Controls
+  emergency_stop_loss: 15.0    # Emergency stop loss percentage
+  margin_call_threshold: 80.0  # Margin call threshold
+  force_close_threshold: 90.0  # Force close threshold
   
 # Anti-Bias Controls - CRITICAL FOR HALLUCINATION PREVENTION
 bias_detection:
-  long_bias_threshold: 70.0
-  confidence_cap: 85.0
-  contrarian_requirement: true
-  regime_validation: true
+  long_bias_threshold: 70.0    # Long bias detection threshold (60.0-80.0)
+  confidence_cap: 85.0         # Confidence cap percentage (70.0-90.0)
+  contrarian_requirement: true # Require contrarian analysis
+  regime_validation: true      # Validate market regime
+  
+  # Advanced Bias Controls
+  sentiment_weight: 0.3        # Weight for sentiment analysis
+  technical_weight: 0.4        # Weight for technical analysis
+  fundamental_weight: 0.3      # Weight for fundamental analysis
+  confirmation_required: 2     # Number of confirmations required
 
-# Memory System - ENABLE ALL
+# Memory System - FLEXIBLE CONFIGURATION
 memory_system:
-  use_openmemory: true
-  cache_duration: 300  # 5 minutes
-  file_documentation: true
-  session_tracking: true
+  # OpenMemory MCP (Optional - requires separate installation)
+  use_openmemory: false        # Enable OpenMemory MCP if available
+  
+  # File-based Memory (Always available)
+  use_file_memory: true        # Enable file-based memory system
+  cache_duration: 300          # Cache duration in seconds (60-600)
+  file_documentation: true     # Enable file documentation
+  session_tracking: true       # Enable session tracking
+  
+  # Memory Management
+  max_memory_entries: 1000     # Maximum memory entries
+  memory_cleanup_interval: 3600 # Cleanup interval in seconds
+  compress_old_data: true      # Compress old data to save space
+
+# Performance Optimization
+performance:
+  # Market Data
+  market_data_interval: 1000   # Market data refresh interval (ms)
+  max_symbols_scan: 400        # Maximum symbols to scan
+  concurrent_requests: 10      # Maximum concurrent API requests
+  
+  # Analysis Optimization
+  enable_caching: true         # Enable analysis caching
+  cache_analysis_duration: 180 # Cache analysis for 3 minutes
+  parallel_analysis: true      # Enable parallel analysis
+  
+  # Resource Management
+  max_cpu_usage: 80           # Maximum CPU usage percentage
+  max_memory_usage: 70        # Maximum memory usage percentage
+  cleanup_interval: 1800      # Cleanup interval in seconds
+
+# Market Scanning Configuration
+market_scanning:
+  # Filtering
+  min_volume_24h: 1000000     # Minimum 24h volume filter
+  min_price: 0.0001           # Minimum price filter
+  max_price: 100000           # Maximum price filter
+  
+  # Scanning Intervals
+  quick_scan_interval: 30     # Quick scan interval in seconds
+  deep_scan_interval: 300     # Deep scan interval in seconds
+  
+  # Opportunity Detection
+  min_opportunity_score: 20   # Minimum opportunity score
+  max_opportunities: 50       # Maximum opportunities to track
+  
+  # Market Tiers
+  tier1_symbols: ["BTCUSDT", "ETHUSDT", "ADAUSDT", "DOTUSDT", "LINKUSDT"]
+  tier2_volume_threshold: 50000000  # Volume threshold for tier 2
+  tier3_volume_threshold: 10000000  # Volume threshold for tier 3
+
+# Notification System
+notifications:
+  # Alert Settings
+  enable_alerts: true         # Enable system alerts
+  alert_sound: true           # Enable alert sounds
+  desktop_notifications: true # Enable desktop notifications
+  
+  # Alert Thresholds
+  profit_alert_threshold: 5.0 # Profit alert threshold
+  loss_alert_threshold: 3.0   # Loss alert threshold
+  volume_spike_threshold: 3.0 # Volume spike alert threshold
+  
+  # Webhook Support (Optional)
+  webhook_enabled: false      # Enable webhook notifications
+  webhook_url: ""             # Webhook URL
 
 # Team Configuration - UNIFIED APPROACH
 team_coordination:
-  enable_teams: true
-  individual_mode: true
-  team_location: "agent-teams/"
+  enable_teams: true          # Enable team coordination
+  individual_mode: true       # Enable individual agent mode
+  team_location: "agent-teams/" # Team configuration location
+  
+  # Team Performance
+  team_sync_interval: 60      # Team sync interval in seconds
+  max_team_members: 5         # Maximum team members
+  
+# Development & Debug
+development:
+  debug_mode: false           # Enable debug mode
+  log_level: "INFO"           # Log level (DEBUG, INFO, WARN, ERROR)
+  save_logs: true             # Save logs to file
+  max_log_size: 10            # Maximum log size in MB
+  
+  # Testing
+  enable_backtesting: false   # Enable backtesting mode
+  test_data_path: "test-data/" # Test data path
+  
+# API Configuration
+api_settings:
+  request_timeout: 30         # API request timeout in seconds
+  max_retries: 3              # Maximum retry attempts
+  retry_delay: 1              # Retry delay in seconds
+  
+  # Rate Limiting
+  requests_per_minute: 1200   # Requests per minute limit
+  burst_limit: 10             # Burst request limit
+
+# Documentation System - AUTOMATIC DOCUMENTATION GENERATION
+documentation:
+  # Auto Documentation Settings
+  auto_documentation: true     # Enable automatic documentation generation
+  documentation_trigger: "analysis_complete"  # When to generate docs
+  documentation_format: "markdown"  # Format for documentation (markdown/json/yaml)
+  
+  # Documentation Types
+  generate_analysis_docs: true    # Generate analysis documentation
+  generate_trade_docs: true       # Generate trading documentation
+  generate_session_docs: true     # Generate session summaries
+  generate_strategy_docs: true    # Generate strategy documentation
+  generate_performance_docs: true # Generate performance reports
+  
+  # Documentation Triggers
+  triggers:
+    after_analysis: true          # Generate docs after market analysis
+    after_trade: true             # Generate docs after trade execution
+    after_session: true           # Generate docs at session end
+    after_strategy_run: true      # Generate docs after strategy execution
+    on_significant_event: true    # Generate docs for significant events
+    daily_summary: true           # Generate daily summary docs
+    
+  # Documentation Locations
+  locations:
+    analysis_docs: "docs/analysis/"     # Analysis documentation folder
+    trade_docs: "docs/trades/"          # Trading documentation folder
+    session_docs: "docs/sessions/"      # Session documentation folder
+    strategy_docs: "docs/strategies/"   # Strategy documentation folder
+    performance_docs: "docs/performance/" # Performance documentation folder
+    
+  # Documentation Content
+  content_settings:
+    include_screenshots: false    # Include chart screenshots (if available)
+    include_code_blocks: true     # Include code examples
+    include_data_tables: true     # Include data in table format
+    include_risk_analysis: true   # Include risk analysis section
+    include_lessons_learned: true # Include lessons learned section
+    
+  # Auto-generated Documentation Templates
+  templates:
+    analysis_template: "analysis-doc-template.md"
+    trade_template: "trade-doc-template.md"
+    session_template: "session-doc-template.md"
+    strategy_template: "strategy-doc-template.md"
+    performance_template: "performance-doc-template.md"
+    
+  # Documentation Retention
+  retention:
+    keep_days: 30                 # Keep documentation for 30 days
+    archive_old_docs: true        # Archive old documentation
+    max_docs_per_type: 100        # Maximum documents per type
+    
+  # Integration Settings
+  integration:
+    use_copilot_for_generation: true  # Use GitHub Copilot for doc generation
+    auto_commit_docs: false       # Auto-commit documentation to git
+    generate_index: true          # Generate index of all documentation
