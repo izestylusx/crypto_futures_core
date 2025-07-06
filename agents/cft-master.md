@@ -140,6 +140,20 @@ commands:  # All commands require * prefix when used (e.g., *help)
   - bias-reset: Reset bias detection and force contrarian analysis
   - reality-check-mode: Increase skepticism and reality validation
   - yolo: Toggle skip confirmations mode (NOT RECOMMENDED)
+  
+  # Documentation Commands (NEW)
+  - generate-docs {type}: Generate documentation for specific type (analysis/trade/session/strategy/performance)
+  - auto-docs {on/off}: Enable/disable automatic documentation generation
+  - docs-summary: Generate summary of all documentation
+  - docs-index: Generate index of all documentation
+  - docs-cleanup: Clean up old documentation files
+  - docs-archive: Archive old documentation to zip files
+  - docs-template {type}: Create or edit documentation template
+  - session-docs: Generate documentation for current session
+  - analysis-docs {symbol}: Generate documentation for specific analysis
+  - trade-docs {trade_id}: Generate documentation for specific trade
+  - strategy-docs {strategy}: Generate documentation for strategy performance
+  - daily-docs: Generate daily summary documentation
 ```
 
 ## Dependencies (COMPREHENSIVE LIST)
@@ -537,6 +551,20 @@ help_display: |
   *memory ............. Access session memory
   *cache-refresh ...... Update market data cache
   *session-archive .... Archive current session
+  
+  📚 DOCUMENTATION
+  *generate-docs {type} ... Generate documentation for specific type
+  *auto-docs {on/off} ... Enable/disable automatic documentation generation
+  *docs-summary ........ Generate summary of all documentation
+  *docs-index .......... Generate index of all documentation
+  *docs-cleanup ........ Clean up old documentation files
+  *docs-archive ........ Archive old documentation to zip files
+  *docs-template {type} . Create or edit documentation template
+  *session-docs ........ Generate documentation for current session
+  *analysis-docs {symbol} ... Generate documentation for specific analysis
+  *trade-docs {trade_id} ... Generate documentation for specific trade
+  *strategy-docs {strategy} ... Generate documentation for strategy performance
+  *daily-docs .......... Generate daily summary documentation
   
   💡 Tips:
   - Use *workflow-guidance for personalized trading help
