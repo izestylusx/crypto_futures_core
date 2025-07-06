@@ -1,0 +1,59 @@
+# Scalping Team Configuration
+# High-frequency trading team for scalping strategies
+
+version: 1.0.0
+team_name: "Scalping Team"
+team_id: "team-scalping"
+description: "High-frequency trading team optimized for scalping and short-term opportunities"
+
+# Team Composition (Minimal for speed)
+agents:
+  primary:
+    - name: "CFT Master"
+      id: "cft-master"
+      role: "coordinator"
+      file: "agents/cft-master.md"
+      priority: 1
+      
+  analysis:
+    - name: "Market Analyst"
+      id: "market-analyst"
+      role: "market_analysis"
+      file: "agents/market-analyst.md"
+      priority: 2
+      response_time_target: "500ms"
+      
+  execution:
+    - name: "Execution Trader"
+      id: "execution-trader"
+      role: "trade_execution"
+      file: "agents/execution-trader.md"
+      priority: 3
+      response_time_target: "200ms"
+
+# Team Communication Flow (Streamlined)
+communication_flow:
+  signal_generation:
+    - market-analyst → cft-master → execution-trader
+    
+# Scalping Configuration
+trading_config:
+  max_concurrent_positions: 5
+  position_hold_time: "5-15 minutes"
+  target_profit: "0.2-0.5%"
+  stop_loss: "0.1-0.2%"
+  portfolio_risk_limit: 5.0
+  team_leverage_limit: 10
+  
+# Speed Optimizations
+performance_config:
+  cache_duration: "30 seconds"
+  analysis_interval: "1 minute"
+  risk_check_simplified: true
+  
+# Bias Prevention (Simplified for speed)
+bias_prevention:
+  require_contrarian_analysis: false
+  confidence_cap: 75.0
+  mandatory_bias_check: false
+  quick_regime_check: true

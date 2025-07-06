@@ -1,0 +1,71 @@
+# Complete Trading Desk Team Configuration
+# Full crypto futures trading team with all agents
+
+version: 1.0.0
+team_name: "Full Trading Desk"
+team_id: "team-full-trading"
+description: "Complete trading desk with all agent types for comprehensive market coverage"
+
+# Team Composition
+agents:
+  primary:
+    - name: "CFT Master"
+      id: "cft-master"
+      role: "coordinator"
+      file: "agents/cft-master.md"
+      priority: 1
+      
+  analysis:
+    - name: "Market Analyst"
+      id: "market-analyst"
+      role: "market_analysis"
+      file: "agents/market-analyst.md"
+      priority: 2
+      
+  risk:
+    - name: "Risk Manager"
+      id: "risk-manager"
+      role: "risk_validation"
+      file: "agents/risk-manager.md"
+      priority: 3
+      
+  execution:
+    - name: "Execution Trader"
+      id: "execution-trader"
+      role: "trade_execution"
+      file: "agents/execution-trader.md"
+      priority: 4
+      
+  monitoring:
+    - name: "Performance Tracker"
+      id: "performance-tracker"
+      role: "performance_monitoring"
+      file: "agents/performance-tracker.md"
+      priority: 5
+
+# Team Communication Flow
+communication_flow:
+  signal_generation:
+    - market-analyst → cft-master
+    - cft-master → risk-manager
+    - risk-manager → execution-trader
+    - execution-trader → performance-tracker
+    
+  monitoring:
+    - performance-tracker → cft-master
+    - risk-manager → cft-master
+    - market-analyst → cft-master
+
+# Trading Configuration
+trading_config:
+  max_concurrent_positions: 10
+  portfolio_risk_limit: 10.0
+  team_leverage_limit: 20
+  required_confirmations: 2
+  
+# Bias Prevention
+bias_prevention:
+  require_contrarian_analysis: true
+  confidence_cap: 85.0
+  mandatory_bias_check: true
+  regime_validation: true

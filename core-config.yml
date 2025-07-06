@@ -1,0 +1,40 @@
+# DO NOT MODIFY - EXACT CONFIGURATION REQUIRED
+version: 1.0.0
+project_name: "Crypto Futures Trading Agent System"
+agent_type: "document_based"
+
+# Trading Configuration - DO NOT CHANGE VALUES
+trading:
+  exchange: "binance_futures"
+  default_leverage: 5
+  max_leverage: 20
+  risk_percentage: 2.0
+  base_currency: "USDT"
+
+# Risk Management - EXACT VALUES REQUIRED
+risk_management:
+  max_portfolio_risk: 10.0
+  max_position_risk: 5.0
+  stop_loss_percentage: 2.0
+  take_profit_ratio: 2.0
+  max_drawdown_threshold: 20.0
+  
+# Anti-Bias Controls - CRITICAL FOR HALLUCINATION PREVENTION
+bias_detection:
+  long_bias_threshold: 70.0
+  confidence_cap: 85.0
+  contrarian_requirement: true
+  regime_validation: true
+
+# Memory System - ENABLE ALL
+memory_system:
+  use_openmemory: true
+  cache_duration: 300  # 5 minutes
+  file_documentation: true
+  session_tracking: true
+
+# Team Configuration - UNIFIED APPROACH
+team_coordination:
+  enable_teams: true
+  individual_mode: true
+  team_location: "agent-teams/"
