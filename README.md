@@ -63,10 +63,14 @@ Selamat datang di **Crypto Futures Core System**! Ini adalah sistem AI agent can
 - **[9. 📞 Support & Community](#-support--community)**
 
 ### 🎯 Command Reference
-- **Agent Commands:** `*agent market-analyst`, `*agent risk-manager`, `*agent execution-trader`
-- **Trading Commands:** `*market-status`, `*portfolio`, `*risk-check`, `*scan`
-- **Workflow Commands:** `*workflow-guidance`, `*strategy [nama]`
-- **Help Commands:** `*help`, `*status`
+- **Core Commands:** `*help`, `*status`, `*config`, `*mode`, `*exit`
+- **Agent Commands:** `*agent market-analyst`, `*agent risk-manager`, `*agent execution-trader`, `*agent performance-tracker`
+- **Team Commands:** `*team full-trading`, `*team scalping`, `*team swing-trading`
+- **Trading Commands:** `*market-overview`, `*portfolio`, `*risk-check`, `*scan`, `*trade`, `*bracket-order`
+- **Analysis Commands:** `*analyze`, `*signal`, `*market-dashboard`, `*market-opportunities`, `*quick-scan`
+- **Workflow Commands:** `*workflow-guidance`, `*strategy [nama]`, `*signal-to-execution`, `*daily-routine`
+- **Risk Commands:** `*bias-check`, `*contrarian-view`, `*reality-check`, `*emergency-mode`
+- **Memory Commands:** `*memory`, `*cache-refresh`, `*session-archive`
 
 ---
 
@@ -235,12 +239,14 @@ pip install premium_futures_mcp
 
 ## 🎮 Cara Menggunakan Sistem
 
-### 1. Mulai dengan CFT Orchestrator
+### 1. Mulai dengan CFT Master
 
-1. **Buka file `cft-orchestrator.md`** di folder `agents/`
+1. **Buka file `cft-master.md`** di folder `agents/`
 2. **Buka GitHub Copilot Chat** (`Ctrl + Shift + I`)
-3. **Pastikan file `cft-orchestrator.md` terbuka** - ini akan membuat Copilot memahami sistem
+3. **Pastikan file `cft-master.md` terbuka** - ini akan membuat Copilot memahami sistem
 4. **Mulai dengan command:** `*help`
+
+> 💡 **Update Sistem:** CFT Master sekarang merupakan unified agent yang menggabungkan fungsi trading langsung dan orchestration. Tidak perlu lagi menggunakan file orchestrator terpisah!
 
 ### 2. Command Dasar Sistem
 
@@ -250,10 +256,12 @@ Semua command harus dimulai dengan **asterisk (*)** di GitHub Copilot Chat:
 ```
 *help              → Tampilkan semua command dan agent
 *status            → Cek status pasar dan posisi saat ini
+*config            → Tampilkan konfigurasi dan parameter risk
 *agent [nama]      → Ubah ke agent specialist tertentu
+*team [nama]       → Aktivasi tim trading (full-trading, scalping, swing-trading)
 *workflow          → Mulai workflow trading
 *risk-check        → Analisis risiko komprehensif
-*market-status     → Overview pasar crypto saat ini
+*market-overview   → Overview pasar crypto saat ini
 *portfolio         → Lihat posisi dan balance
 ```
 
@@ -265,12 +273,32 @@ Semua command harus dimulai dengan **asterisk (*)** di GitHub Copilot Chat:
 *agent performance-tracker → Tracking performa
 ```
 
-#### 📊 Workflow Trading:
+#### � Team Trading:
+```
+*team full-trading       → Tim lengkap untuk trading komprehensif
+*team scalping          → Tim untuk scalping dan high-frequency
+*team swing-trading     → Tim untuk swing trading konservatif
+```
+
+#### �📊 Workflow & Market Analysis:
 ```
 *workflow-guidance        → Panduan memilih workflow
-*workflow signal-to-execution → Dari sinyal ke eksekusi
-*strategy [nama]         → Load strategi trading
-*scan                    → Scan pasar 400+ token
+*signal-to-execution     → Dari sinyal ke eksekusi
+*daily-routine          → Rutinitas harian trading
+*strategy [nama]        → Load strategi trading
+*scan                   → Scan pasar 400+ token
+*market-dashboard       → Dashboard pasar komprehensif
+*market-opportunities   → Peluang trading dengan scoring
+*quick-scan            → Scan cepat untuk peluang immediate
+```
+
+#### 🛡️ Risk & Bias Management:
+```
+*bias-check {symbol}     → Deteksi bias directional
+*contrarian-view {symbol} → Analisis berlawanan
+*reality-check {signal}  → Validasi sinyal vs data historis
+*emergency-mode         → Aktivasi protokol emergency
+*safe-mode             → Mode ultra-konservatif
 ```
 
 ### 3. Contoh Penggunaan Praktis
@@ -279,6 +307,18 @@ Semua command harus dimulai dengan **asterisk (*)** di GitHub Copilot Chat:
 ```
 *agent market-analyst
 Analisis kondisi pasar Bitcoin saat ini, berikan rekomendasi trading
+```
+
+#### 🎯 Analisis Peluang Trading:
+```
+*market-opportunities
+Tampilkan peluang trading terbaik dengan scoring komprehensif
+```
+
+#### 📊 Dashboard Pasar Lengkap:
+```
+*market-dashboard
+Tampilkan dashboard pasar dengan semua metrik penting
 ```
 
 #### ⚠️ Cek Risiko Portfolio:
@@ -290,7 +330,19 @@ Evaluasi risiko portfolio saya saat ini
 #### 🎯 Eksekusi Trading:
 ```
 *agent execution-trader
-Buat order BTC long dengan risk ratio 1:2
+Buat bracket order BTC long dengan TP/SL ratio 1:2
+```
+
+#### 🔍 Scan Pasar Cepat:
+```
+*quick-scan
+Berikan analisis cepat untuk peluang trading immediate
+```
+
+#### 👥 Aktivasi Tim Trading:
+```
+*team full-trading
+Aktivasi tim lengkap untuk trading komprehensif
 ```
 
 ---
@@ -338,30 +390,52 @@ momentum_indicators:
 
 ### 💪 Best Practices:
 1. **Selalu mulai dengan `*help`** untuk melihat command terbaru
-2. **Gunakan `*risk-check`** sebelum trading besar
-3. **Aktifkan `*agent risk-manager`** untuk monitoring otomatis
-4. **Gunakan `*scan`** untuk mencari peluang trading di banyak token
-5. **Save analisis penting** dengan `*memory`
+2. **Gunakan `*config`** untuk melihat parameter risk saat ini
+3. **Gunakan `*risk-check`** sebelum trading besar
+4. **Aktifkan `*agent risk-manager`** untuk monitoring otomatis
+5. **Gunakan `*scan`** untuk mencari peluang trading di banyak token
+6. **Manfaatkan `*market-dashboard`** untuk overview pasar lengkap
+7. **Gunakan `*team [nama]`** untuk aktivasi tim trading sesuai strategi
+8. **Aktifkan `*bias-check`** untuk deteksi bias sebelum trading
+9. **Save analisis penting** dengan `*memory`
+10. **Gunakan `*quick-scan`** untuk peluang immediate
 
 ### 🎯 Workflow yang Direkomendasikan:
 1. **Morning Routine:**
    ```
-   *market-status
+   *market-overview
    *portfolio
    *risk-check
+   *market-dashboard
    ```
 
 2. **Analisis Trading:**
    ```
    *agent market-analyst
+   *market-opportunities
    *scan
    *workflow-guidance
    ```
 
-3. **Eksekusi Trading:**
+3. **Persiapan Trading:**
+   ```
+   *bias-check [symbol]
+   *contrarian-view [symbol]
+   *reality-check [signal]
+   ```
+
+4. **Eksekusi Trading:**
    ```
    *agent execution-trader
    *checklist pre-trade-checklist
+   *bracket-order [symbol] [side] [size] [tp] [sl]
+   ```
+
+5. **Tim Trading (Advanced):**
+   ```
+   *team full-trading      → Untuk trading komprehensif
+   *team scalping         → Untuk high-frequency trading
+   *team swing-trading    → Untuk position trading
    ```
 
 ### 🚨 Keamanan Trading:
@@ -386,10 +460,11 @@ momentum_indicators:
 
 **2. Command tidak berfungsi:**
 ```
-• Pastikan file cft-orchestrator.md terbuka
+• Pastikan file cft-master.md terbuka
 • Gunakan * di depan command
 • Cek ejaan command
 • Restart GitHub Copilot
+• Pastikan MCP server terhubung
 ```
 
 **3. Error saat trading:**
@@ -405,15 +480,27 @@ momentum_indicators:
 ## 🎓 Mulai Trading Pertama Anda
 
 ### Quick Start Guide:
-1. **Buka `cft-orchestrator.md`**
+1. **Buka `cft-master.md`**
 2. **Mulai chat dengan:** `*help`
-3. **Cek kondisi:** `*market-status`
-4. **Pilih agent:** `*agent market-analyst`
-5. **Minta analisis:** "Analisis peluang trading hari ini"
-6. **Eksekusi:** `*agent execution-trader`
+3. **Cek kondisi:** `*market-overview`
+4. **Lihat dashboard:** `*market-dashboard`
+5. **Pilih agent:** `*agent market-analyst`
+6. **Minta analisis:** "Analisis peluang trading hari ini"
+7. **Cek peluang:** `*market-opportunities`
+8. **Validasi bias:** `*bias-check [symbol]`
+9. **Eksekusi:** `*agent execution-trader`
+10. **Aktivasi tim:** `*team full-trading` (untuk trading komprehensif)
 
 ### 🎯 Selamat Trading!
-Dengan sistem ini, Anda memiliki AI trading assistant yang powerful dan dapat disesuaikan dengan gaya trading Anda. Mulai dari analisis pasar hingga eksekusi trading, semuanya bisa dilakukan dengan mudah melalui GitHub Copilot.
+Dengan CFT Master yang telah di-upgrade, Anda memiliki AI trading assistant yang lebih powerful dan unified. Sistem ini menggabungkan kemampuan trading langsung dengan orchestration agent yang cerdas. Mulai dari analisis pasar hingga eksekusi trading, semuanya bisa dilakukan dengan mudah melalui satu agent utama.
+
+### 🆕 Fitur Baru CFT Master:
+- **Unified Agent**: Satu agent untuk semua kebutuhan trading
+- **Team Management**: Koordinasi tim trading otomatis
+- **Advanced Market Analysis**: Dashboard dan opportunities dengan scoring
+- **Enhanced Risk Management**: Bias detection dan reality check
+- **Workflow Orchestration**: Panduan workflow yang lebih cerdas
+- **Memory & Cache Management**: Sistem memory yang lebih baik
 
 > **⚠️ Disclaimer:** Trading crypto futures memiliki risiko tinggi. Selalu gunakan manajemen risiko yang baik dan jangan trading dengan uang yang tidak mampu Anda rugi.
 
